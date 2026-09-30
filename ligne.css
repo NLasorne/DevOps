@@ -1,0 +1,16 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #f4f4f9;
+}
+
+h1 {
+  color: #2c3e50;
+  font-size: 3rem;
+  border-bottom: 3px solid #3498db;
+  padding-bottom: 10px;
+}
