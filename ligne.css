@@ -56,3 +56,18 @@ h2 {
   font-size: 1.8rem;
   margin: 0;
 }
+
+/* Style du pied de page (Copyright) */
+footer {
+  width: 100%;
+  background-color: #ffffff;
+  text-align: center;
+  padding: 1rem 0;
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+footer p {
+  margin: 0;
+}
