@@ -8,9 +8,20 @@ body {
   background-color: #f4f4f9;
 }
 
+.container {
+  text-align: center;
+}
+
 h1 {
   color: #2c3e50;
-  font-size: 3rem;
+  font-size: 2.5rem;
   border-bottom: 3px solid #3498db;
   padding-bottom: 10px;
+  margin-bottom: 2rem; /* Espace entre le titre et le Hello World */
+}
+
+h2 {
+  color: #34495e;
+  font-size: 1.8rem;
+  margin: 0;
 }
