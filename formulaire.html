@@ -4,9 +4,6 @@
   <meta charset="UTF-8">
   <title>Formulaire d'inscription</title>
   <style>
-    .form-group {
-      margin-bottom: 1rem;
-    }
     .form-group { margin-bottom: 1rem; }
     .status { font-size: 0.9rem; margin-top: 0.25rem; }
     .valide { color: green; }
@@ -19,7 +16,8 @@
     <div class="form-group">
       <label for="password">Mot de passe</label>
       <input type="password" id="password" required>
-      <div id="passwordFeedback" class="strength-indicator"></div>
+      <!-- Ajout des classes status pour appliquer le style de base -->
+      <div id="passwordFeedback" class="status"></div>
     </div>
 
     <button type="submit" id="submitBtn" disabled>S'inscrire</button>
@@ -27,7 +25,7 @@
 
   <script>
   function validerMotDePasse(motDePasse) {
-    // au moins 8 caractères, au moins une lettre et au moins un chiffre
+    // au moins 8 caractères, au moins une lettre, un chiffre et un caractère spécial
     const regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[.#\-_*+=)({}!]).{8,}$/;
     return regex.test(motDePasse);
   }
@@ -36,28 +34,27 @@
   const submitBtn = document.getElementById('submitBtn');
   const passwordFeedback = document.getElementById('passwordFeedback');
 
-    inputPassword.addEventListener('input', (e) => {
+  inputPassword.addEventListener('input', (e) => {
     const val = e.target.value;
     const estValide = validerMotDePasse(val);
 
-    // Activation / désactivation du bouton de validation
+    // Activation / désactivation du bouton
     submitBtn.disabled = !estValide;
 
-    // Affichage du statut de validité de base
+    // Réinitialisation des classes
+    passwordFeedback.classList.remove('valide', 'invalide');
+
+    // Affichage du statut et gestion de la couleur
     if (val.length === 0) {
       passwordFeedback.textContent = '';
     } else if (estValide) {
       passwordFeedback.textContent = 'Mot de passe valide';
+      passwordFeedback.classList.add('valide');
     } else {
-      passwordFeedback.textContent = '8 caractères min., avec 1 lettre et 1 chiffre requis';
+      passwordFeedback.textContent = '8 caractères min., avec 1 lettre, 1 chiffre et 1 symbole (.#-_*+=)({}!)';
+      passwordFeedback.classList.add('invalide');
     }
   });
-
-    inputPassword.addEventListener('input', (e) => {
-      const estValide = validerMotDePasse(e.target.value);
-      // Active le bouton si le mot de passe respecte la regex, le d�sactive sinon
-      submitBtn.disabled = !estValide;
-    });
   </script>
 
 </body>
