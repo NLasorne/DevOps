@@ -22,8 +22,8 @@
 
   <script>
     function validerMotDePasse(motDePasse) {
-      // au moins 8 caractŠres, au moins une lettre et au moins un chiffre
-      const regex = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/;
+      // au moins 8 caractï¿½res, une lettre, un chiffre et un caractï¿½re spï¿½cial (.#-_)
+      const regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[.#\-_*+=)({}!]).{8,}$/;
       return regex.test(motDePasse);
     }
 
@@ -32,7 +32,7 @@
 
     inputPassword.addEventListener('input', (e) => {
       const estValide = validerMotDePasse(e.target.value);
-      // Active le bouton si le mot de passe respecte la regex, le d‚sactive sinon
+      // Active le bouton si le mot de passe respecte la regex, le dï¿½sactive sinon
       submitBtn.disabled = !estValide;
     });
   </script>
